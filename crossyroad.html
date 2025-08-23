@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Crossy Road Interactivo</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(120deg, #0d1b2a, #1b263b);
+      color: white;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+      position: relative;
+      height: 100%;
+    }
+
+    #particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: -1;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+      position: relative;
+      animation: fadeZoom 1.5s ease-in-out;
+    }
+
+    @keyframes fadeZoom {
+      0% { opacity: 0; transform: scale(0.9); }
+      100% { opacity: 1; transform: scale(1); }
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #00ff99;
+      margin-bottom: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .description {
+      color: #d4d4d4;
+      font-size: 1.2em;
+      margin-bottom: 20px;
+    }
+
+    .parallax-container {
+      perspective: 1000px;
+      margin-bottom: 25px;
+    }
+
+    .parallax-item {
+      display: inline-block;
+      transform-style: preserve-3d;
+      transition: transform 0.1s ease-out;
+    }
+
+    iframe {
+      width: 100%;
+      max-width: 400px;
+      height: 700px;
+      border: 2px solid #00ff99;
+      border-radius: 12px;
+      background: black;
+    }
+
+    /* Botón WhatsApp en verde */
+    .btn-whatsapp {
+      display: inline-block;
+      margin-top: 15px;
+      background: linear-gradient(90deg, #25d366, #128c7e);
+      color: white;
+      padding: 12px 25px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      font-size: 1.1em;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+      transition: all 0.3s ease;
+    }
+
+    .btn-whatsapp:hover {
+      transform: scale(1.05);
+    }
+
+    .info {
+      margin-top: 25px;
+      background-color: rgba(26, 43, 60, 0.9);
+      padding: 15px;
+      border-radius: 8px;
+      text-align: left;
+      font-size: 1em;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    .info span {
+      font-weight: bold;
+      color: #ffd700;
+    }
+
+    @media (max-width: 768px) {
+      iframe {
+        max-width: 100%;
+        height: 450px;
+      }
+      h1 { font-size: 2em; }
+      .description { font-size: 1em; }
+    }
+  </style>
+</head>
+<body>
+  <canvas id="particles"></canvas>
+
+  <div class="container">
+    <h1 id="title">CROSSY ROAD INTERACTIVO</h1>
+    <p class="description">
+      ¡El clásico juego llevado a TikTok Live con regalos que controlan el camino!
+    </p>
+
+    <!-- Video con autoplay -->
+    <div class="parallax-container">
+      <div class="parallax-item" id="parallax-item">
+        <iframe 
+          src="https://www.youtube.com/embed/5n4wZ6lN6Go?autoplay=1&mute=1&loop=1&playlist=5n4wZ6lN6Go"
+          title="Crossy Road Interactivo Video"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen>
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Botón WhatsApp -->
+    <a href="https://wa.me/573105051410?text=¡Hola!%20Quiero%20el%20juego%20Crossy%20Road%20Interactivo" 
+       target="_blank" class="btn-whatsapp">📲 ¡Quiero este juego!</a>
+
+    <div class="info">
+      <p><span>🐔 Personaje:</span> Cruza calles, ríos y vías peligrosas.</p>
+      <p><span>🚗 Obstáculos:</span> Autos, camiones y trenes frenéticos.</p>
+      <p><span>🎮 Interacción:</span> Los regalos mueven al jugador en vivo.</p>
+      <p><span>🎁 Regalos:</span> Cada gift = un movimiento (arriba, abajo, izquierda o derecha).</p>
+    </div>
+  </div>
+
+  <script>
+    const parallaxItem = document.getElementById('parallax-item');
+    const title = document.getElementById('title');
+
+    document.addEventListener('mousemove', (e) => {
+      let x = (window.innerWidth / 2 - e.pageX) / 40;
+      let y = (window.innerHeight / 2 - e.pageY) / 40;
+      parallaxItem.style.transform = `rotateY(${x}deg) rotateX(${y}deg)`;
+      title.style.transform = `translateX(${x}px) translateY(${y}px)`;
+    });
+
+    document.addEventListener('mouseleave', () => {
+      parallaxItem.style.transform = `rotateY(0deg) rotateX(0deg)`;
+      title.style.transform = `translateX(0px) translateY(0px)`;
+    });
+
+    const canvas = document.getElementById('particles');
+    const ctx = canvas.getContext('2d');
+    let particlesArray = [];
+    let mouse = { x: null, y: null };
+
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+
+    window.addEventListener('resize', () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.x;
+      mouse.y = e.y;
+    });
+
+    class Particle {
+      constructor(x, y, size, color) {
+        this.x = x;
+        this.y = y;
+        this.size = size;
+        this.color = color;
+        this.speedX = (Math.random() - 0.5) * 1.5;
+        this.speedY = (Math.random() - 0.5) * 1.5;
+      }
+      draw() {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+        ctx.fillStyle = this.color;
+        ctx.shadowColor = '#00ff99';
+        ctx.shadowBlur = 15;
+        ctx.fill();
+      }
+      update() {
+        this.x += this.speedX;
+        this.y += this.speedY;
+        const dx = mouse.x - this.x;
+        const dy = mouse.y - this.y;
+        const distance = Math.sqrt(dx * dx + dy * dy);
+        if (distance < 100) {
+          this.x -= dx / 10;
+          this.y -= dy / 10;
+        }
+        if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+        if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+        this.draw();
+      }
+    }
+
+    function initParticles() {
+      particlesArray = [];
+      const numberOfParticles = (canvas.width * canvas.height) / 9000;
+      for (let i = 0; i < numberOfParticles; i++) {
+        const size = Math.random() * 3 + 1;
+        const x = Math.random() * canvas.width;
+        const y = Math.random() * canvas.height;
+        particlesArray.push(new Particle(x, y, size, 'rgba(0,255,153,0.8)'));
+      }
+    }
+
+    function animateParticles() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particlesArray.forEach(p => p.update());
+      requestAnimationFrame(animateParticles);
+    }
+
+    initParticles();
+    animateParticles();
+  </script>
+</body>
+</html>

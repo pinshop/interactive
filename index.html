@@ -107,6 +107,122 @@
         filter: brightness(1.3);
     }
 
+    /* Estilos de precios */
+    .price-tag {
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        background: rgba(0, 0, 0, 0.8);
+        color: #FFD700;
+        padding: 5px 10px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 0.9rem;
+        border: 2px solid #FFD700;
+    }
+
+    .cart-section {
+        margin-top: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .btn-cart {
+        background-color: #28a745;
+        border: none;
+        color: white;
+        font-weight: bold;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+    }
+
+    .btn-cart:hover {
+        background-color: #218838;
+        transform: scale(1.05);
+    }
+
+    .btn-gold {
+        background: linear-gradient(45deg, #FFD700, #FFA500);
+        border: none;
+        color: black;
+        font-weight: bold;
+        padding: 8px 15px;
+        border-radius: 5px;
+        transition: all 0.3s ease;
+        box-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    }
+
+    .btn-gold:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.8);
+    }
+
+    /* Carrito flotante */
+    .cart-float {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        background: linear-gradient(45deg, #191932, #222244);
+        border: 2px solid #FFD700;
+        border-radius: 15px;
+        padding: 15px;
+        min-width: 250px;
+        z-index: 1000;
+        box-shadow: 0 0 20px rgba(255, 215, 0, 0.3);
+    }
+
+    .cart-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 5px 0;
+        border-bottom: 1px solid rgba(255, 215, 0, 0.3);
+    }
+
+    .cart-total {
+        font-weight: bold;
+        color: #FFD700;
+        margin-top: 10px;
+        text-align: right;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .discount-section {
+        display: none;
+        margin-top: 10px;
+        padding: 10px;
+        background: rgba(255, 215, 0, 0.1);
+        border-radius: 8px;
+        border: 1px solid rgba(255, 215, 0, 0.3);
+    }
+
+    .discount-btn {
+        background: linear-gradient(45deg, #FF6B6B, #FF8E53);
+        border: none;
+        color: white;
+        padding: 8px 12px;
+        border-radius: 5px;
+        font-weight: bold;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .discount-btn:hover {
+        transform: scale(1.05);
+        box-shadow: 0 0 10px rgba(255, 107, 107, 0.5);
+    }
+
+    .discount-applied {
+        color: #4CAF50;
+        font-weight: bold;
+        margin-top: 5px;
+    }
+
     /* Ajustes móviles */
     @media (max-width: 768px) {
         .tag-mensual {
@@ -132,9 +248,9 @@
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="#carreras">Juegos</a></li>
-                <li class="nav-item"><a class="nav-link" href="#batallas">Explicación</a></li>
-                <li class="nav-item"><a class="nav-link" href="#supervivencia">Opiniones</a></li>
-                <li class="nav-item"><a class="nav-link" href="#torres">Contacto</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://wa.me/3105051410?text=Hola,%20quiero%20información%20sobre%20los%20juegos" target="_blank">Explicación</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://wa.me/3105051410?text=Hola,%20quiero%20dejar%20una%20opinión%20o%20testimonio" target="_blank">Opiniones</a></li>
+                <li class="nav-item"><a class="nav-link" href="https://www.tiktok.com/@pinshopcol" target="_blank">Contacto</a></li>
             </ul>
         </div>
     </div>
@@ -173,17 +289,47 @@
 <div class="container">
     <div class="row g-4">
 
+        <!-- AGARIO DE PAISES -->
+        <div class="col-12 col-md-3" data-aos="fade-up">
+            <div class="card h-100">
+                <span class="price-tag">$20 USD</span>
+                <a href="agariopaises.html">
+                    <img src="agario.jpg" class="card-img-top img-fluid" alt="Agario de Paises">
+                </a>
+                <div class="card-body text-center">
+                    <h5 class="card-title">AGARIO DE PAISES</h5>
+                    <p class="card-text">Batalla de células interactiva entre países.</p>
+                    <div class="cart-section">
+                        <button class="btn btn-cart" onclick="addToCart('Agario de Paises', 20)">
+                            🛒 Agregar al carrito
+                        </button>
+                        <button class="btn btn-gold" onclick="getFree('Agario de Paises')">
+                            ⭐ Obtener Gratis (Agencia)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- NUEVA CARD: HOMBRES VS MUJERES -->
         <div class="col-12 col-md-3" data-aos="fade-up">
             <div class="card h-100">
                 <span class="tag-mensual">MENSUAL</span>
+                <span class="price-tag">$7 USD</span>
                 <a href="hombresvsmujeres.html">
                     <img src="hvm.jpg" class="card-img-top img-fluid" alt="Hombres vs Mujeres">
                 </a>
                 <div class="card-body text-center">
                     <h5 class="card-title">HOMBRES VS MUJERES</h5>
                     <p class="card-text">Batalla interactiva por comentarios o regalos.</p>
-                    <a href="hombresvsmujeres.html" class="btn btn-warning">Ver más</a>
+                    <div class="cart-section">
+                        <button class="btn btn-cart" onclick="addToCart('Hombres vs Mujeres', 7)">
+                            🛒 Agregar al carrito
+                        </button>
+                        <button class="btn btn-gold" onclick="getFree('Hombres vs Mujeres')">
+                            ⭐ Obtener Gratis (Agencia)
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -191,11 +337,39 @@
         <!-- City Tower -->
         <div class="col-12 col-md-3" data-aos="fade-up">
             <div class="card h-100">
+                <span class="price-tag">$15 USD</span>
                 <a href="citytower.html"><img src="juego1.jpg" class="card-img-top img-fluid"></a>
                 <div class="card-body text-center">
                     <h5 class="card-title">City Tower</h5>
                     <p class="card-text">Construye tu torre con la audiencia.</p>
-                    <a href="citytower.html" class="btn btn-warning">Ver más</a>
+                    <div class="cart-section">
+                        <button class="btn btn-cart" onclick="addToCart('City Tower', 15)">
+                            🛒 Agregar al carrito
+                        </button>
+                        <button class="btn btn-gold" onclick="getFree('City Tower')">
+                            ⭐ Obtener Gratis (Agencia)
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Batalla de Equipos Futbol -->
+        <div class="col-12 col-md-3" data-aos="fade-up">
+            <div class="card h-100">
+                <span class="price-tag">$20 USD</span>
+                <a href="batallafutbol.html"><img src="batallaequipos.jpg" class="card-img-top img-fluid"></a>
+                <div class="card-body text-center">
+                    <h5 class="card-title">BATALLA DE EQUIPOS FUTBOL</h5>
+                    <p class="card-text">Marca la mayor cantidad de goles apoyando a tu equipo favorito.</p>
+                    <div class="cart-section">
+                        <button class="btn btn-cart" onclick="addToCart('Batalla de Equipos Futbol', 20)">
+                            🛒 Agregar al carrito
+                        </button>
+                        <button class="btn btn-gold" onclick="getFree('Batalla de Equipos Futbol')">
+                            ⭐ Obtener Gratis (Agencia)
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -203,11 +377,19 @@
         <!-- Country Race -->
         <div class="col-12 col-md-3" data-aos="fade-up" data-aos-delay="100">
             <div class="card h-100">
+                <span class="price-tag">$20 USD</span>
                 <a href="countryrace.html"><img src="juego2.jpg" class="card-img-top img-fluid"></a>
                 <div class="card-body text-center">
                     <h5 class="card-title">Carrera de Paises</h5>
                     <p class="card-text">Países compiten en tiempo real.</p>
-                    <a href="countryrace.html" class="btn btn-warning">Ver más</a>
+                    <div class="cart-section">
+                        <button class="btn btn-cart" onclick="addToCart('Carrera de Paises', 20)">
+                            🛒 Agregar al carrito
+                        </button>
+                        <button class="btn btn-gold" onclick="getFree('Carrera de Paises')">
+                            ⭐ Obtener Gratis (Agencia)
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -215,11 +397,19 @@
         <!-- Crossy Road -->
         <div class="col-12 col-md-3" data-aos="fade-up" data-aos-delay="200">
             <div class="card h-100">
+                <span class="price-tag">$5 USD</span>
                 <a href="crossyroad.html"><img src="juego3.jpg" class="card-img-top img-fluid"></a>
                 <div class="card-body text-center">
                     <h5 class="card-title">Crossy Road</h5>
                     <p class="card-text">Clásico interactivo controlado por la audiencia.</p>
-                    <a href="crossyroad.html" class="btn btn-warning">Ver más</a>
+                    <div class="cart-section">
+                        <button class="btn btn-cart" onclick="addToCart('Crossy Road', 5)">
+                            🛒 Agregar al carrito
+                        </button>
+                        <button class="btn btn-gold" onclick="getFree('Crossy Road')">
+                            ⭐ Obtener Gratis (Agencia)
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -227,16 +417,41 @@
         <!-- Snake -->
         <div class="col-12 col-md-3" data-aos="fade-up" data-aos-delay="300">
             <div class="card h-100">
+                <span class="price-tag">$5 USD</span>
                 <a href="snake.html"><img src="juego4.jpg" class="card-img-top img-fluid"></a>
                 <div class="card-body text-center">
                     <h5 class="card-title">Serpiente</h5>
                     <p class="card-text">Versión moderna del clásico Snake.</p>
-                    <a href="snake.html" class="btn btn-warning">Ver más</a>
+                    <div class="cart-section">
+                        <button class="btn btn-cart" onclick="addToCart('Serpiente', 5)">
+                            🛒 Agregar al carrito
+                        </button>
+                        <button class="btn btn-gold" onclick="getFree('Serpiente')">
+                            ⭐ Obtener Gratis (Agencia)
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
 
     </div>
+</div>
+
+<!-- CARRITO FLOTANTE -->
+<div class="cart-float" id="cartFloat" style="display: none;">
+    <h6 style="color: #FFD700; margin-bottom: 15px;">🛒 Tu Carrito</h6>
+    <div id="cartItems"></div>
+    <div class="cart-total">
+        <span id="discountSection" style="display: none;">
+            <button class="discount-btn" onclick="applyDiscount()">🎉 Aplicar 30% OFF</button>
+        </span>
+        <span>Total: $<span id="cartTotal">0</span> USD</span>
+    </div>
+    <div class="discount-section" id="discountSection">
+        <div class="discount-applied" id="discountInfo"></div>
+    </div>
+    <button class="btn btn-warning w-100 mt-3" onclick="checkout()">Pagar</button>
+    <button class="btn btn-secondary w-100 mt-2" onclick="clearCart()">Vaciar</button>
 </div>
 
 <!-- FOOTER -->
@@ -282,6 +497,160 @@
         },
         retina_detect: true
     });
+
+    // Sistema de carrito
+    let cart = [];
+    let discountApplied = false;
+
+    function addToCart(productName, price) {
+        const existingItem = cart.find(item => item.name === productName);
+        if (existingItem) {
+            existingItem.quantity++;
+        } else {
+            cart.push({ name: productName, price: price, quantity: 1 });
+        }
+        updateCart();
+        showNotification(`${productName} agregado al carrito`);
+    }
+
+    function removeFromCart(productName) {
+        cart = cart.filter(item => item.name !== productName);
+        updateCart();
+    }
+
+    function updateCart() {
+        const cartFloat = document.getElementById('cartFloat');
+        const cartItems = document.getElementById('cartItems');
+        const cartTotal = document.getElementById('cartTotal');
+        const discountSection = document.getElementById('discountSection');
+
+        if (cart.length === 0) {
+            cartFloat.style.display = 'none';
+            discountApplied = false;
+            return;
+        }
+
+        cartFloat.style.display = 'block';
+        cartItems.innerHTML = '';
+        let total = 0;
+
+        cart.forEach(item => {
+            const itemTotal = item.price * item.quantity;
+            total += itemTotal;
+            cartItems.innerHTML += `
+                <div class="cart-item">
+                    <span>${item.name} x${item.quantity}</span>
+                    <span>$${itemTotal}</span>
+                    <button onclick="removeFromCart('${item.name}')" style="background: none; border: none; color: red; cursor: pointer;">❌</button>
+                </div>
+            `;
+        });
+
+        // Mostrar botón de descuento si hay más de 2 juegos
+        const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+        if (totalItems > 2 && !discountApplied) {
+            discountSection.style.display = 'inline-block';
+        } else {
+            discountSection.style.display = 'none';
+        }
+
+        // Aplicar descuento si está activo
+        if (discountApplied) {
+            total = total * 0.7; // 30% de descuento
+        }
+
+        cartTotal.textContent = total;
+    }
+
+    function clearCart() {
+        cart = [];
+        updateCart();
+        showNotification('Carrito vaciado');
+    }
+
+    function applyDiscount() {
+        discountApplied = true;
+        showNotification('🎉 ¡Descuento del 30% aplicado!');
+        updateCart();
+        
+        const discountInfo = document.getElementById('discountInfo');
+        discountInfo.textContent = '✅ Descuento del 30% aplicado';
+        discountInfo.parentElement.style.display = 'block';
+    }
+
+    function checkout() {
+        if (cart.length === 0) {
+            showNotification('El carrito está vacío');
+            return;
+        }
+        
+        const total = cart.reduce((sum, item) => sum + (item.price * item.quantity), 0);
+        const finalTotal = discountApplied ? total * 0.7 : total;
+        
+        showNotification(`Procesando pago de $${finalTotal} USD...`);
+        
+        // Generar mensaje para WhatsApp
+        let message = '¡Hola! Quiero comprar los siguientes juegos:\n\n';
+        cart.forEach(item => {
+            message += `• ${item.name} x${item.quantity} - $${item.price * item.quantity} USD\n`;
+        });
+        message += `\n`;
+        if (discountApplied) {
+            message += `Subtotal: $${total} USD\n`;
+            message += `Descuento (30%): -$${(total * 0.3).toFixed(2)} USD\n`;
+            message += `Total: $${finalTotal} USD\n\n`;
+        } else {
+            message += `Total: $${finalTotal} USD\n\n`;
+        }
+        message += 'Por favor, ¿podrían ayudarme con el proceso de pago?';
+        
+        const encodedMessage = encodeURIComponent(message);
+        setTimeout(() => {
+            window.open(`https://wa.me/573105051410?text=${encodedMessage}`, '_blank');
+            showNotification('Redirigiendo a WhatsApp...');
+        }, 1500);
+    }
+
+    function getFree(productName) {
+        showNotification(`🎉 ¡${productName} gratis al unirte a nuestra agencia!`);
+        setTimeout(() => {
+            const message = 'Quiero unirme a la agencia y obtener todos los juegos gratis, soporte 24/7, instalación y mantenimiento';
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/573105051410?text=${encodedMessage}`, '_blank');
+        }, 1000);
+    }
+
+    function showNotification(message) {
+        const notification = document.createElement('div');
+        notification.style.cssText = `
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #191932, #222244);
+            color: #FFD700;
+            padding: 15px 20px;
+            border-radius: 10px;
+            border: 2px solid #FFD700;
+            z-index: 10000;
+            animation: slideIn 0.3s ease;
+        `;
+        notification.textContent = message;
+        document.body.appendChild(notification);
+
+        setTimeout(() => {
+            notification.remove();
+        }, 3000);
+    }
+
+    // Animación para notificaciones
+    const style = document.createElement('style');
+    style.textContent = `
+        @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+    `;
+    document.head.appendChild(style);
 </script>
 
 </body>
